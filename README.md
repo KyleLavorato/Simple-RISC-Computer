@@ -1,5 +1,5 @@
 # Simple RISC Computer
-
+---
 ## System Introduction
 
 This repository holds the Hardware Description Language definition for a simple 32-bit, single bus RISC style computer in the Verilog language. The computer is fully functional, implementing a basic instruction set, built in the Altera Quartus II software and simulated through the ModelSim software. It may also be synthesized on a physical Cyclone FPGA chip. Notable hardware includes a full Arithmetic Logic Unit (ALU), Inferred RAM Module, Memory Stack and Control Logic state machines.
@@ -13,7 +13,7 @@ The system is created in an object oriented style, with each Verilog file defini
 The `/Documentation` directory contains both the original design specification the the system was built according to and technical reports which apply real test cases to the system to prove its functionality, with results. Also included is custom instructions and hardware added to the original specification to further improve the system.
 
 # Instruction Set
-
+---
 The system implements the following basic 5-bit instruction set
 
 ### Load and Store Instructions
@@ -68,5 +68,5 @@ The system implements the following basic 5-bit instruction set
 * Store on Stack: ```ststk Ra```
 
 ## Instruction Assembler
-
+---
 A custom written assembler in Python 3 is provided for the computer in the `/Assembler/assembler.py` file. This assembler is pre-compiled from the source, and takes an input file named `code.asm` to produce an assembled output in binary for input to this computer in the file `assembled.asm`. To run the assembled code, it must be loaded into the RAM of the computer in `ram512.v` or loaded through a Memory Initialization File (mif).
