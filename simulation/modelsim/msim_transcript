@@ -1,0 +1,257 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do computer_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/reg32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module reg32
+# 
+# Top level modules:
+# 	reg32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/computer.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module computer
+# 
+# Top level modules:
+# 	computer
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/reg64.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module reg64
+# 
+# Top level modules:
+# 	reg64
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/Bus32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Bus32
+# 
+# Top level modules:
+# 	Bus32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/encoder.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module encoder
+# 
+# Top level modules:
+# 	encoder
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/mdr.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mdr
+# 
+# Top level modules:
+# 	mdr
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/alu.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/add32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module add32
+# 
+# Top level modules:
+# 	add32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/sub32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sub32
+# 
+# Top level modules:
+# 	sub32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/div32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module div32
+# 
+# Top level modules:
+# 	div32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/mul32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mul32
+# 
+# Top level modules:
+# 	mul32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/or32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module or32
+# 
+# Top level modules:
+# 	or32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/and32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module and32
+# 
+# Top level modules:
+# 	and32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/not32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module not32
+# 
+# Top level modules:
+# 	not32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/addOne.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module addOne
+# 
+# Top level modules:
+# 	addOne
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/neg32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module neg32
+# 
+# Top level modules:
+# 	neg32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/shl32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module shl32
+# 
+# Top level modules:
+# 	shl32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/shr32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module shr32
+# 
+# Top level modules:
+# 	shr32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/rol32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module rol32
+# 
+# Top level modules:
+# 	rol32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/ror32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ror32
+# 
+# Top level modules:
+# 	ror32
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/Clock.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Clock
+# 
+# Top level modules:
+# 	Clock
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/selectAndEncode.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module selectAndEncode
+# 
+# Top level modules:
+# 	selectAndEncode
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/Decode4to16.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Decode4to16
+# 
+# Top level modules:
+# 	Decode4to16
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/regR0.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module regR0
+# 
+# Top level modules:
+# 	regR0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/conFF.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module conFF
+# 
+# Top level modules:
+# 	conFF
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/conFFCompare.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module conFFCompare
+# 
+# Top level modules:
+# 	conFFCompare
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/outPort.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module outPort
+# 
+# Top level modules:
+# 	outPort
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/inPort.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module inPort
+# 
+# Top level modules:
+# 	inPort
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/ram512.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ram512
+# 
+# Top level modules:
+# 	ram512
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/ControlUnit.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ControlUnit
+# 
+# Top level modules:
+# 	ControlUnit
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/stack32.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module stack32
+# 
+# Top level modules:
+# 	stack32
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/elec374/project {C:/altera/13.0sp1/elec374/project/computerP3_tb.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module computerP3_tb
+# 
+# Top level modules:
+# 	computerP3_tb
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiii_ver -L rtl_work -L work -voptargs="+acc"  computerP3_tb
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps computerP3_tb 
+# Loading work.computerP3_tb
+# Loading work.computer
+# Loading work.Clock
+# Loading work.regR0
+# Loading work.reg32
+# Loading work.reg64
+# Loading work.encoder
+# Loading work.Bus32
+# Loading work.alu
+# Loading work.add32
+# Loading lpm_ver.lpm_add_sub
+# Loading work.sub32
+# Loading work.mul32
+# Loading lpm_ver.lpm_mult
+# Loading lpm_ver.LPM_HINT_EVALUATION
+# Loading work.div32
+# Loading lpm_ver.lpm_divide
+# Loading work.and32
+# Loading work.or32
+# Loading work.shr32
+# Loading lpm_ver.lpm_clshift
+# Loading work.shl32
+# Loading work.ror32
+# Loading work.rol32
+# Loading work.neg32
+# Loading work.addOne
+# Loading work.not32
+# Loading work.mdr
+# Loading work.ram512
+# Loading work.stack32
+# Loading work.selectAndEncode
+# Loading work.Decode4to16
+# Loading lpm_ver.lpm_decode
+# Loading work.conFF
+# Loading work.conFFCompare
+# Loading lpm_ver.lpm_compare
+# Loading work.inPort
+# Loading work.outPort
+# Loading work.ControlUnit
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/elec374/project/computer.v(132): [PCDPC] - Port size (32 or 32) does not match connection size (9) for port 'q'. The port definition is at: C:/altera/13.0sp1/elec374/project/reg32.v(3).
+# 
+#         Region: /computerP3_tb/cp/MAR
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 200 ns

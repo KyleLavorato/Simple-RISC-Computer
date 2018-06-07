@@ -1,0 +1,1522 @@
+Analysis & Synthesis report for computer
+Fri Apr 07 11:31:45 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |computer|ControlUnit:cu|present_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Parameter Settings for User Entity Instance: alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component
+ 14. Parameter Settings for User Entity Instance: alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component
+ 15. Parameter Settings for User Entity Instance: alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component
+ 16. Parameter Settings for User Entity Instance: alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component
+ 17. Parameter Settings for User Entity Instance: alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component
+ 18. Parameter Settings for User Entity Instance: alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component
+ 19. Parameter Settings for User Entity Instance: alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component
+ 20. Parameter Settings for User Entity Instance: alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component
+ 21. Parameter Settings for User Entity Instance: alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component
+ 22. Parameter Settings for User Entity Instance: alu:alu1|addOne:add2|lpm_add_sub:LPM_ADD_SUB_component
+ 23. Parameter Settings for User Entity Instance: alu:alu1|addOne:add3|lpm_add_sub:LPM_ADD_SUB_component
+ 24. Parameter Settings for User Entity Instance: selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component
+ 25. Parameter Settings for User Entity Instance: conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component
+ 26. Parameter Settings for User Entity Instance: ControlUnit:cu
+ 27. lpm_mult Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "ControlUnit:cu"
+ 29. Port Connectivity Checks: "outPort:port2"
+ 30. Port Connectivity Checks: "reg32:MAR"
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Apr 07 11:31:45 2017           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; computer                                        ;
+; Top-level Entity Name              ; computer                                        ;
+; Family                             ; Cyclone III                                     ;
+; Total logic elements               ; 0                                               ;
+;     Total combinational functions  ; 0                                               ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 33                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; computer           ; computer           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; reg32.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/reg32.v                                 ;         ;
+; computer.v                       ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/computer.v                              ;         ;
+; reg64.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/reg64.v                                 ;         ;
+; Bus32.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/Bus32.v                                 ;         ;
+; encoder.v                        ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/encoder.v                               ;         ;
+; mdr.v                            ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/mdr.v                                   ;         ;
+; alu.v                            ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/alu.v                                   ;         ;
+; add32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/add32.v                                 ;         ;
+; sub32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/sub32.v                                 ;         ;
+; div32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/div32.v                                 ;         ;
+; mul32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/mul32.v                                 ;         ;
+; or32.v                           ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/or32.v                                  ;         ;
+; and32.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/and32.v                                 ;         ;
+; not32.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/not32.v                                 ;         ;
+; addOne.v                         ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/addOne.v                                ;         ;
+; neg32.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/neg32.v                                 ;         ;
+; shl32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/shl32.v                                 ;         ;
+; shr32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/shr32.v                                 ;         ;
+; rol32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/rol32.v                                 ;         ;
+; ror32.v                          ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/ror32.v                                 ;         ;
+; Clock.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/Clock.v                                 ;         ;
+; selectAndEncode.v                ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/selectAndEncode.v                       ;         ;
+; Decode4to16.v                    ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/Decode4to16.v                           ;         ;
+; regR0.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/regR0.v                                 ;         ;
+; conFF.v                          ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/conFF.v                                 ;         ;
+; conFFCompare.v                   ; yes             ; User Wizard-Generated File   ; C:/altera/13.0sp1/elec374/project/conFFCompare.v                          ;         ;
+; outPort.v                        ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/outPort.v                               ;         ;
+; inPort.v                         ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/inPort.v                                ;         ;
+; ram512.v                         ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/ram512.v                                ;         ;
+; ControlUnit.v                    ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/ControlUnit.v                           ;         ;
+; stack32.v                        ; yes             ; User Verilog HDL File        ; C:/altera/13.0sp1/elec374/project/stack32.v                               ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc          ;         ;
+; db/add_sub_vhh.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/add_sub_vhh.tdf                      ;         ;
+; db/add_sub_0jh.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/add_sub_0jh.tdf                      ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf            ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc            ;         ;
+; db/mult_d7n.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/mult_d7n.tdf                         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf          ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc         ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc     ;         ;
+; db/lpm_divide_d9s.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/lpm_divide_d9s.tdf                   ;         ;
+; db/sign_div_unsign_39h.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/sign_div_unsign_39h.tdf              ;         ;
+; db/alt_u_div_t8f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/alt_u_div_t8f.tdf                    ;         ;
+; db/add_sub_unc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/add_sub_unc.tdf                      ;         ;
+; db/add_sub_vnc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/add_sub_vnc.tdf                      ;         ;
+; lpm_clshift.tdf                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_clshift.tdf         ;         ;
+; db/lpm_clshift_vjc.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/lpm_clshift_vjc.tdf                  ;         ;
+; db/lpm_clshift_ukb.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/lpm_clshift_ukb.tdf                  ;         ;
+; db/lpm_clshift_jhc.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/lpm_clshift_jhc.tdf                  ;         ;
+; db/lpm_clshift_iib.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/lpm_clshift_iib.tdf                  ;         ;
+; db/add_sub_jlh.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/add_sub_jlh.tdf                      ;         ;
+; lpm_decode.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.tdf          ;         ;
+; declut.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/declut.inc              ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
+; db/decode_lbf.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/decode_lbf.tdf                       ;         ;
+; lpm_compare.tdf                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.tdf         ;         ;
+; comptree.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/comptree.inc            ;         ;
+; db/cmpr_vpj.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/altera/13.0sp1/elec374/project/db/cmpr_vpj.tdf                         ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+;                                             ;                  ;
+; Total combinational functions               ; 0                ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 0                ;
+;     -- 3 input functions                    ; 0                ;
+;     -- <=2 input functions                  ; 0                ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 0                ;
+;     -- arithmetic mode                      ; 0                ;
+;                                             ;                  ;
+; Total registers                             ; 0                ;
+;     -- Dedicated logic registers            ; 0                ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 33               ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+; Maximum fan-out node                        ; InPort_dataIn[0] ;
+; Maximum fan-out                             ; 1                ;
+; Total fan-out                               ; 33               ;
+; Average fan-out                             ; 0.50             ;
++---------------------------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |computer                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 33   ; 0            ; |computer           ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                   ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------+--------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                      ; IP Include File                                  ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------+--------------------------------------------------+
+; Altera ; LPM_ADD_SUB  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|add32:add1                        ; C:/altera/13.0sp1/elec374/project/add32.v        ;
+; Altera ; LPM_ADD_SUB  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|addOne:add2                       ; C:/altera/13.0sp1/elec374/project/addOne.v       ;
+; Altera ; LPM_ADD_SUB  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|addOne:add3                       ; C:/altera/13.0sp1/elec374/project/addOne.v       ;
+; Altera ; LPM_DIVIDE   ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|div32:div1                        ; C:/altera/13.0sp1/elec374/project/div32.v        ;
+; Altera ; LPM_MULT     ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|mul32:mul1                        ; C:/altera/13.0sp1/elec374/project/mul32.v        ;
+; Altera ; LPM_ADD_SUB  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|neg32:neg1|addOne:twosCompAdd     ; C:/altera/13.0sp1/elec374/project/addOne.v       ;
+; Altera ; LPM_CLSHIFT  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|rol32:rol1                        ; C:/altera/13.0sp1/elec374/project/rol32.v        ;
+; Altera ; LPM_CLSHIFT  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|ror32:ror1                        ; C:/altera/13.0sp1/elec374/project/ror32.v        ;
+; Altera ; LPM_CLSHIFT  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|shl32:shl1                        ; C:/altera/13.0sp1/elec374/project/shl32.v        ;
+; Altera ; LPM_CLSHIFT  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|shr32:shr1                        ; C:/altera/13.0sp1/elec374/project/shr32.v        ;
+; Altera ; LPM_ADD_SUB  ; 13.0    ; N/A          ; N/A          ; |computer|alu:alu1|sub32:sub1                        ; C:/altera/13.0sp1/elec374/project/sub32.v        ;
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |computer|conFF:compare|conFFCompare:comparator      ; C:/altera/13.0sp1/elec374/project/conFFCompare.v ;
+; Altera ; LPM_DECODE   ; 13.0    ; N/A          ; N/A          ; |computer|selectAndEncode:encode|Decode4to16:decoder ; C:/altera/13.0sp1/elec374/project/Decode4to16.v  ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------+--------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |computer|ControlUnit:cu|present_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
++---------------------------+----------------------+-------------------------+----------------------+----------------------+----------------------+----------------------+--------------------+--------------------+---------------------+-------------------+--------------------+---------------------+---------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+--------------------+----------------------+----------------------+---------------------------+
+; Name                      ; present_state.fetch0 ; present_state.end_state ; present_state.ststk4 ; present_state.ststk3 ; present_state.ldstk4 ; present_state.ldstk3 ; present_state.inc4 ; present_state.inc3 ; present_state.halt3 ; present_state.in3 ; present_state.out3 ; present_state.mflo3 ; present_state.mfhi3 ; present_state.jal5 ; present_state.jal4 ; present_state.jal3 ; present_state.jp3 ; present_state.br4 ; present_state.br3 ; present_state.st7 ; present_state.st6 ; present_state.ldr7 ; present_state.ldr6 ; present_state.ldr5 ; present_state.ldr4 ; present_state.ldr3 ; present_state.ldi5 ; present_state.ld7 ; present_state.ld6 ; present_state.ld5 ; present_state.ld4 ; present_state.ld3 ; present_state.neg5 ; present_state.neg4 ; present_state.neg3 ; present_state.mul6 ; present_state.mul5 ; present_state.mul4 ; present_state.mul3 ; present_state.addi4 ; present_state.add5 ; present_state.add4 ; present_state.add3 ; present_state.fetch2 ; present_state.fetch1 ; present_state.reset_state ;
++---------------------------+----------------------+-------------------------+----------------------+----------------------+----------------------+----------------------+--------------------+--------------------+---------------------+-------------------+--------------------+---------------------+---------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+--------------------+----------------------+----------------------+---------------------------+
+; present_state.reset_state ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 0                         ;
+; present_state.fetch1      ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 1                    ; 1                         ;
+; present_state.fetch2      ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 1                    ; 0                    ; 1                         ;
+; present_state.add3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 1                  ; 0                    ; 0                    ; 1                         ;
+; present_state.add4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 1                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.add5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 1                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.addi4       ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mul3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mul4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mul5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mul6        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.neg3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.neg4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.neg5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ld3         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ld4         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ld5         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ld6         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ld7         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldi5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldr3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldr4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldr5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldr6        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldr7        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.st6         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.st7         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.br3         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.br4         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.jp3         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.jal3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 1                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.jal4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 1                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.jal5        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 1                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mfhi3       ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 1                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.mflo3       ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 1                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.out3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 1                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.in3         ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 1                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.halt3       ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 1                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.inc3        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 1                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.inc4        ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 1                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldstk3      ; 0                    ; 0                       ; 0                    ; 0                    ; 0                    ; 1                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ldstk4      ; 0                    ; 0                       ; 0                    ; 0                    ; 1                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ststk3      ; 0                    ; 0                       ; 0                    ; 1                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.ststk4      ; 0                    ; 0                       ; 1                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.end_state   ; 0                    ; 1                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
+; present_state.fetch0      ; 1                    ; 0                       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                  ; 0                  ; 0                   ; 0                 ; 0                  ; 0                   ; 0                   ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                   ; 0                  ; 0                  ; 0                  ; 0                    ; 0                    ; 1                         ;
++---------------------------+----------------------+-------------------------+----------------------+----------------------+----------------------+----------------------+--------------------+--------------------+---------------------+-------------------+--------------------+---------------------+---------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+--------------------+----------------------+----------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++------------------------------------------+--------------------------------------+
+; Register name                            ; Reason for Removal                   ;
++------------------------------------------+--------------------------------------+
+; conFF:compare|conOut                     ; Stuck at GND due to stuck port clock ;
+; mdr:MDR|data_out[0..31]                  ; Stuck at GND due to stuck port clock ;
+; reg32:MAR|q[0..8]                        ; Lost fanout                          ;
+; reg64:Z|data[0..63]                      ; Stuck at GND due to stuck port clock ;
+; reg32:Y|q[0..31]                         ; Lost fanout                          ;
+; reg32:IR|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:PC|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:LO|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:HI|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R15|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R14|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R13|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R12|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R11|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R10|q[0..31]                       ; Stuck at GND due to stuck port clock ;
+; reg32:R9|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R8|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R7|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R6|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R5|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R4|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R3|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R2|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; reg32:R1|q[0..31]                        ; Stuck at GND due to stuck port clock ;
+; regR0:R0|data[0]                         ; Stuck at GND due to stuck port clock ;
+; regR0:R0|q[0]                            ; Lost fanout                          ;
+; regR0:R0|q[1..31]                        ; Stuck at GND due to stuck port clock ;
+; regR0:R0|data[1..31]                     ; Stuck at GND due to stuck port clock ;
+; ControlUnit:cu|present_state.addi4       ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldi5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mfhi3       ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mflo3       ; Lost fanout                          ;
+; ControlUnit:cu|present_state.out3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.in3         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.halt3       ; Lost fanout                          ;
+; ControlUnit:cu|present_state~2           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~3           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~4           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~5           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~6           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~7           ; Lost fanout                          ;
+; ControlUnit:cu|present_state~8           ; Lost fanout                          ;
+; ControlUnit:cu|present_state.reset_state ; Stuck at GND due to stuck port clock ;
+; ControlUnit:cu|present_state.add5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.add4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.add3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mul6        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mul5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mul4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.mul3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.neg5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.neg4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.neg3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ld7         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ld6         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ld5         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ld4         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ld3         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.fetch2      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.fetch1      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.fetch0      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldr7        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldr6        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.st7         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.st6         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldr5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldr4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldr3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.br4         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.br3         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.jp3         ; Lost fanout                          ;
+; ControlUnit:cu|present_state.jal5        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.jal4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.jal3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.inc4        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.inc3        ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldstk4      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ldstk3      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ststk4      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.ststk3      ; Lost fanout                          ;
+; ControlUnit:cu|present_state.end_state   ; Stuck at GND due to stuck port clock ;
+; Total Number of Removed Registers = 863  ;                                      ;
++------------------------------------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                     ;
++------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------+
+; Register name                            ; Reason for Removal      ; Registers Removed due to This Register                                                     ;
++------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------+
+; reg64:Z|data[63]                         ; Stuck at GND            ; reg64:Z|data[31], reg64:Z|data[30], reg64:Z|data[29], reg64:Z|data[28], reg32:Y|q[28],     ;
+;                                          ; due to stuck port clock ; reg32:Y|q[27], reg32:Y|q[26], reg32:Y|q[25], reg32:Y|q[24], reg32:Y|q[23], reg32:Y|q[22],  ;
+;                                          ;                         ; reg32:Y|q[21], reg32:Y|q[20], reg32:Y|q[19], reg32:Y|q[18], reg32:Y|q[17], reg32:Y|q[16],  ;
+;                                          ;                         ; reg32:Y|q[15], reg32:Y|q[14], reg32:Y|q[13], reg32:Y|q[12], reg32:Y|q[11], reg32:Y|q[10],  ;
+;                                          ;                         ; reg32:Y|q[9], reg32:Y|q[8], reg32:Y|q[7], reg32:Y|q[6], reg32:Y|q[5], reg32:Y|q[4],        ;
+;                                          ;                         ; reg32:Y|q[3], reg32:Y|q[2], reg32:IR|q[31], reg32:LO|q[31], reg32:HI|q[31],                ;
+;                                          ;                         ; reg32:R15|q[31], reg32:R14|q[31], reg32:R13|q[31], reg32:R12|q[31], reg32:R11|q[31],       ;
+;                                          ;                         ; reg32:R10|q[31], reg32:R9|q[31], reg32:R8|q[31], reg32:R7|q[31], reg32:R6|q[31],           ;
+;                                          ;                         ; reg32:R5|q[31], reg32:R4|q[31], reg32:R3|q[31], reg32:R2|q[31], reg32:R1|q[31],            ;
+;                                          ;                         ; regR0:R0|data[31]                                                                          ;
+; conFF:compare|conOut                     ; Stuck at GND            ; reg32:PC|q[0], reg32:PC|q[31], reg32:PC|q[30], reg32:PC|q[29], reg32:PC|q[28],             ;
+;                                          ; due to stuck port clock ; reg32:PC|q[27], reg32:PC|q[26], reg32:PC|q[25], reg32:PC|q[24], reg32:PC|q[23],            ;
+;                                          ;                         ; reg32:PC|q[22], reg32:PC|q[21], reg32:PC|q[20], reg32:PC|q[19], reg32:PC|q[18],            ;
+;                                          ;                         ; reg32:PC|q[17], reg32:PC|q[16], reg32:PC|q[15], reg32:PC|q[14], reg32:PC|q[13],            ;
+;                                          ;                         ; reg32:PC|q[12], reg32:PC|q[11], reg32:PC|q[10], reg32:PC|q[9], reg32:PC|q[8],              ;
+;                                          ;                         ; reg32:PC|q[7], reg32:PC|q[6], reg32:PC|q[5], reg32:PC|q[4], reg32:PC|q[3], reg32:PC|q[2],  ;
+;                                          ;                         ; reg32:PC|q[1]                                                                              ;
+; reg64:Z|data[49]                         ; Stuck at GND            ; reg64:Z|data[1], reg32:IR|q[17], reg32:LO|q[17], reg32:HI|q[17], reg32:R15|q[17],          ;
+;                                          ; due to stuck port clock ; reg32:R14|q[17], reg32:R13|q[17], reg32:R12|q[17], reg32:R11|q[17], reg32:R10|q[17],       ;
+;                                          ;                         ; reg32:R9|q[17], reg32:R8|q[17], reg32:R7|q[17], reg32:R6|q[17], reg32:R5|q[17],            ;
+;                                          ;                         ; reg32:R4|q[17], reg32:R3|q[17], reg32:R2|q[17], reg32:R1|q[17], regR0:R0|data[17]          ;
+; reg64:Z|data[32]                         ; Stuck at GND            ; reg32:Y|q[1], reg32:IR|q[0], reg32:LO|q[0], reg32:HI|q[0], reg32:R15|q[0], reg32:R14|q[0], ;
+;                                          ; due to stuck port clock ; reg32:R13|q[0], reg32:R12|q[0], reg32:R11|q[0], reg32:R10|q[0], reg32:R9|q[0],             ;
+;                                          ;                         ; reg32:R8|q[0], reg32:R7|q[0], reg32:R6|q[0], reg32:R5|q[0], reg32:R4|q[0], reg32:R3|q[0],  ;
+;                                          ;                         ; reg32:R2|q[0], reg32:R1|q[0], regR0:R0|data[0]                                             ;
+; reg64:Z|data[33]                         ; Stuck at GND            ; reg32:IR|q[1], reg32:LO|q[1], reg32:HI|q[1], reg32:R15|q[1], reg32:R14|q[1],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[1], reg32:R12|q[1], reg32:R11|q[1], reg32:R10|q[1], reg32:R9|q[1],             ;
+;                                          ;                         ; reg32:R8|q[1], reg32:R7|q[1], reg32:R6|q[1], reg32:R5|q[1], reg32:R4|q[1], reg32:R3|q[1],  ;
+;                                          ;                         ; reg32:R2|q[1], reg32:R1|q[1], regR0:R0|data[1]                                             ;
+; reg64:Z|data[62]                         ; Stuck at GND            ; reg32:IR|q[30], reg32:LO|q[30], reg32:HI|q[30], reg32:R15|q[30], reg32:R14|q[30],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[30], reg32:R12|q[30], reg32:R11|q[30], reg32:R10|q[30], reg32:R9|q[30],        ;
+;                                          ;                         ; reg32:R8|q[30], reg32:R7|q[30], reg32:R6|q[30], reg32:R5|q[30], reg32:R4|q[30],            ;
+;                                          ;                         ; reg32:R3|q[30], reg32:R2|q[30], reg32:R1|q[30], regR0:R0|data[30]                          ;
+; reg64:Z|data[61]                         ; Stuck at GND            ; reg32:IR|q[29], reg32:LO|q[29], reg32:HI|q[29], reg32:R15|q[29], reg32:R14|q[29],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[29], reg32:R12|q[29], reg32:R11|q[29], reg32:R10|q[29], reg32:R9|q[29],        ;
+;                                          ;                         ; reg32:R8|q[29], reg32:R7|q[29], reg32:R6|q[29], reg32:R5|q[29], reg32:R4|q[29],            ;
+;                                          ;                         ; reg32:R3|q[29], reg32:R2|q[29], reg32:R1|q[29], regR0:R0|data[29]                          ;
+; reg64:Z|data[59]                         ; Stuck at GND            ; reg32:IR|q[27], reg32:LO|q[27], reg32:HI|q[27], reg32:R15|q[27], reg32:R14|q[27],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[27], reg32:R12|q[27], reg32:R11|q[27], reg32:R10|q[27], reg32:R9|q[27],        ;
+;                                          ;                         ; reg32:R8|q[27], reg32:R7|q[27], reg32:R6|q[27], reg32:R5|q[27], reg32:R4|q[27],            ;
+;                                          ;                         ; reg32:R3|q[27], reg32:R2|q[27], reg32:R1|q[27], regR0:R0|data[27]                          ;
+; reg64:Z|data[58]                         ; Stuck at GND            ; reg32:IR|q[26], reg32:LO|q[26], reg32:HI|q[26], reg32:R15|q[26], reg32:R14|q[26],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[26], reg32:R12|q[26], reg32:R11|q[26], reg32:R10|q[26], reg32:R9|q[26],        ;
+;                                          ;                         ; reg32:R8|q[26], reg32:R7|q[26], reg32:R6|q[26], reg32:R5|q[26], reg32:R4|q[26],            ;
+;                                          ;                         ; reg32:R3|q[26], reg32:R2|q[26], reg32:R1|q[26], regR0:R0|data[26]                          ;
+; reg64:Z|data[57]                         ; Stuck at GND            ; reg32:IR|q[25], reg32:LO|q[25], reg32:HI|q[25], reg32:R15|q[25], reg32:R14|q[25],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[25], reg32:R12|q[25], reg32:R11|q[25], reg32:R10|q[25], reg32:R9|q[25],        ;
+;                                          ;                         ; reg32:R8|q[25], reg32:R7|q[25], reg32:R6|q[25], reg32:R5|q[25], reg32:R4|q[25],            ;
+;                                          ;                         ; reg32:R3|q[25], reg32:R2|q[25], reg32:R1|q[25], regR0:R0|data[25]                          ;
+; reg64:Z|data[56]                         ; Stuck at GND            ; reg32:IR|q[24], reg32:LO|q[24], reg32:HI|q[24], reg32:R15|q[24], reg32:R14|q[24],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[24], reg32:R12|q[24], reg32:R11|q[24], reg32:R10|q[24], reg32:R9|q[24],        ;
+;                                          ;                         ; reg32:R8|q[24], reg32:R7|q[24], reg32:R6|q[24], reg32:R5|q[24], reg32:R4|q[24],            ;
+;                                          ;                         ; reg32:R3|q[24], reg32:R2|q[24], reg32:R1|q[24], regR0:R0|data[24]                          ;
+; reg64:Z|data[55]                         ; Stuck at GND            ; reg32:IR|q[23], reg32:LO|q[23], reg32:HI|q[23], reg32:R15|q[23], reg32:R14|q[23],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[23], reg32:R12|q[23], reg32:R11|q[23], reg32:R10|q[23], reg32:R9|q[23],        ;
+;                                          ;                         ; reg32:R8|q[23], reg32:R7|q[23], reg32:R6|q[23], reg32:R5|q[23], reg32:R4|q[23],            ;
+;                                          ;                         ; reg32:R3|q[23], reg32:R2|q[23], reg32:R1|q[23], regR0:R0|data[23]                          ;
+; reg64:Z|data[54]                         ; Stuck at GND            ; reg32:IR|q[22], reg32:LO|q[22], reg32:HI|q[22], reg32:R15|q[22], reg32:R14|q[22],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[22], reg32:R12|q[22], reg32:R11|q[22], reg32:R10|q[22], reg32:R9|q[22],        ;
+;                                          ;                         ; reg32:R8|q[22], reg32:R7|q[22], reg32:R6|q[22], reg32:R5|q[22], reg32:R4|q[22],            ;
+;                                          ;                         ; reg32:R3|q[22], reg32:R2|q[22], reg32:R1|q[22], regR0:R0|data[22]                          ;
+; reg64:Z|data[53]                         ; Stuck at GND            ; reg32:IR|q[21], reg32:LO|q[21], reg32:HI|q[21], reg32:R15|q[21], reg32:R14|q[21],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[21], reg32:R12|q[21], reg32:R11|q[21], reg32:R10|q[21], reg32:R9|q[21],        ;
+;                                          ;                         ; reg32:R8|q[21], reg32:R7|q[21], reg32:R6|q[21], reg32:R5|q[21], reg32:R4|q[21],            ;
+;                                          ;                         ; reg32:R3|q[21], reg32:R2|q[21], reg32:R1|q[21], regR0:R0|data[21]                          ;
+; reg64:Z|data[52]                         ; Stuck at GND            ; reg32:IR|q[20], reg32:LO|q[20], reg32:HI|q[20], reg32:R15|q[20], reg32:R14|q[20],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[20], reg32:R12|q[20], reg32:R11|q[20], reg32:R10|q[20], reg32:R9|q[20],        ;
+;                                          ;                         ; reg32:R8|q[20], reg32:R7|q[20], reg32:R6|q[20], reg32:R5|q[20], reg32:R4|q[20],            ;
+;                                          ;                         ; reg32:R3|q[20], reg32:R2|q[20], reg32:R1|q[20], regR0:R0|data[20]                          ;
+; reg64:Z|data[51]                         ; Stuck at GND            ; reg32:IR|q[19], reg32:LO|q[19], reg32:HI|q[19], reg32:R15|q[19], reg32:R14|q[19],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[19], reg32:R12|q[19], reg32:R11|q[19], reg32:R10|q[19], reg32:R9|q[19],        ;
+;                                          ;                         ; reg32:R8|q[19], reg32:R7|q[19], reg32:R6|q[19], reg32:R5|q[19], reg32:R4|q[19],            ;
+;                                          ;                         ; reg32:R3|q[19], reg32:R2|q[19], reg32:R1|q[19], regR0:R0|data[19]                          ;
+; reg64:Z|data[50]                         ; Stuck at GND            ; reg32:IR|q[18], reg32:LO|q[18], reg32:HI|q[18], reg32:R15|q[18], reg32:R14|q[18],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[18], reg32:R12|q[18], reg32:R11|q[18], reg32:R10|q[18], reg32:R9|q[18],        ;
+;                                          ;                         ; reg32:R8|q[18], reg32:R7|q[18], reg32:R6|q[18], reg32:R5|q[18], reg32:R4|q[18],            ;
+;                                          ;                         ; reg32:R3|q[18], reg32:R2|q[18], reg32:R1|q[18], regR0:R0|data[18]                          ;
+; reg64:Z|data[48]                         ; Stuck at GND            ; reg32:IR|q[16], reg32:LO|q[16], reg32:HI|q[16], reg32:R15|q[16], reg32:R14|q[16],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[16], reg32:R12|q[16], reg32:R11|q[16], reg32:R10|q[16], reg32:R9|q[16],        ;
+;                                          ;                         ; reg32:R8|q[16], reg32:R7|q[16], reg32:R6|q[16], reg32:R5|q[16], reg32:R4|q[16],            ;
+;                                          ;                         ; reg32:R3|q[16], reg32:R2|q[16], reg32:R1|q[16], regR0:R0|data[16]                          ;
+; reg64:Z|data[47]                         ; Stuck at GND            ; reg32:IR|q[15], reg32:LO|q[15], reg32:HI|q[15], reg32:R15|q[15], reg32:R14|q[15],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[15], reg32:R12|q[15], reg32:R11|q[15], reg32:R10|q[15], reg32:R9|q[15],        ;
+;                                          ;                         ; reg32:R8|q[15], reg32:R7|q[15], reg32:R6|q[15], reg32:R5|q[15], reg32:R4|q[15],            ;
+;                                          ;                         ; reg32:R3|q[15], reg32:R2|q[15], reg32:R1|q[15], regR0:R0|data[15]                          ;
+; reg64:Z|data[46]                         ; Stuck at GND            ; reg32:IR|q[14], reg32:LO|q[14], reg32:HI|q[14], reg32:R15|q[14], reg32:R14|q[14],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[14], reg32:R12|q[14], reg32:R11|q[14], reg32:R10|q[14], reg32:R9|q[14],        ;
+;                                          ;                         ; reg32:R8|q[14], reg32:R7|q[14], reg32:R6|q[14], reg32:R5|q[14], reg32:R4|q[14],            ;
+;                                          ;                         ; reg32:R3|q[14], reg32:R2|q[14], reg32:R1|q[14], regR0:R0|data[14]                          ;
+; reg64:Z|data[45]                         ; Stuck at GND            ; reg32:IR|q[13], reg32:LO|q[13], reg32:HI|q[13], reg32:R15|q[13], reg32:R14|q[13],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[13], reg32:R12|q[13], reg32:R11|q[13], reg32:R10|q[13], reg32:R9|q[13],        ;
+;                                          ;                         ; reg32:R8|q[13], reg32:R7|q[13], reg32:R6|q[13], reg32:R5|q[13], reg32:R4|q[13],            ;
+;                                          ;                         ; reg32:R3|q[13], reg32:R2|q[13], reg32:R1|q[13], regR0:R0|data[13]                          ;
+; reg64:Z|data[44]                         ; Stuck at GND            ; reg32:IR|q[12], reg32:LO|q[12], reg32:HI|q[12], reg32:R15|q[12], reg32:R14|q[12],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[12], reg32:R12|q[12], reg32:R11|q[12], reg32:R10|q[12], reg32:R9|q[12],        ;
+;                                          ;                         ; reg32:R8|q[12], reg32:R7|q[12], reg32:R6|q[12], reg32:R5|q[12], reg32:R4|q[12],            ;
+;                                          ;                         ; reg32:R3|q[12], reg32:R2|q[12], reg32:R1|q[12], regR0:R0|data[12]                          ;
+; reg64:Z|data[43]                         ; Stuck at GND            ; reg32:IR|q[11], reg32:LO|q[11], reg32:HI|q[11], reg32:R15|q[11], reg32:R14|q[11],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[11], reg32:R12|q[11], reg32:R11|q[11], reg32:R10|q[11], reg32:R9|q[11],        ;
+;                                          ;                         ; reg32:R8|q[11], reg32:R7|q[11], reg32:R6|q[11], reg32:R5|q[11], reg32:R4|q[11],            ;
+;                                          ;                         ; reg32:R3|q[11], reg32:R2|q[11], reg32:R1|q[11], regR0:R0|data[11]                          ;
+; reg64:Z|data[42]                         ; Stuck at GND            ; reg32:IR|q[10], reg32:LO|q[10], reg32:HI|q[10], reg32:R15|q[10], reg32:R14|q[10],          ;
+;                                          ; due to stuck port clock ; reg32:R13|q[10], reg32:R12|q[10], reg32:R11|q[10], reg32:R10|q[10], reg32:R9|q[10],        ;
+;                                          ;                         ; reg32:R8|q[10], reg32:R7|q[10], reg32:R6|q[10], reg32:R5|q[10], reg32:R4|q[10],            ;
+;                                          ;                         ; reg32:R3|q[10], reg32:R2|q[10], reg32:R1|q[10], regR0:R0|data[10]                          ;
+; reg64:Z|data[41]                         ; Stuck at GND            ; reg32:IR|q[9], reg32:LO|q[9], reg32:HI|q[9], reg32:R15|q[9], reg32:R14|q[9],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[9], reg32:R12|q[9], reg32:R11|q[9], reg32:R10|q[9], reg32:R9|q[9],             ;
+;                                          ;                         ; reg32:R8|q[9], reg32:R7|q[9], reg32:R6|q[9], reg32:R5|q[9], reg32:R4|q[9], reg32:R3|q[9],  ;
+;                                          ;                         ; reg32:R2|q[9], reg32:R1|q[9], regR0:R0|data[9]                                             ;
+; reg64:Z|data[40]                         ; Stuck at GND            ; reg32:IR|q[8], reg32:LO|q[8], reg32:HI|q[8], reg32:R15|q[8], reg32:R14|q[8],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[8], reg32:R12|q[8], reg32:R11|q[8], reg32:R10|q[8], reg32:R9|q[8],             ;
+;                                          ;                         ; reg32:R8|q[8], reg32:R7|q[8], reg32:R6|q[8], reg32:R5|q[8], reg32:R4|q[8], reg32:R3|q[8],  ;
+;                                          ;                         ; reg32:R2|q[8], reg32:R1|q[8], regR0:R0|data[8]                                             ;
+; reg64:Z|data[39]                         ; Stuck at GND            ; reg32:IR|q[7], reg32:LO|q[7], reg32:HI|q[7], reg32:R15|q[7], reg32:R14|q[7],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[7], reg32:R12|q[7], reg32:R11|q[7], reg32:R10|q[7], reg32:R9|q[7],             ;
+;                                          ;                         ; reg32:R8|q[7], reg32:R7|q[7], reg32:R6|q[7], reg32:R5|q[7], reg32:R4|q[7], reg32:R3|q[7],  ;
+;                                          ;                         ; reg32:R2|q[7], reg32:R1|q[7], regR0:R0|data[7]                                             ;
+; reg64:Z|data[38]                         ; Stuck at GND            ; reg32:IR|q[6], reg32:LO|q[6], reg32:HI|q[6], reg32:R15|q[6], reg32:R14|q[6],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[6], reg32:R12|q[6], reg32:R11|q[6], reg32:R10|q[6], reg32:R9|q[6],             ;
+;                                          ;                         ; reg32:R8|q[6], reg32:R7|q[6], reg32:R6|q[6], reg32:R5|q[6], reg32:R4|q[6], reg32:R3|q[6],  ;
+;                                          ;                         ; reg32:R2|q[6], reg32:R1|q[6], regR0:R0|data[6]                                             ;
+; reg64:Z|data[37]                         ; Stuck at GND            ; reg32:IR|q[5], reg32:LO|q[5], reg32:HI|q[5], reg32:R15|q[5], reg32:R14|q[5],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[5], reg32:R12|q[5], reg32:R11|q[5], reg32:R10|q[5], reg32:R9|q[5],             ;
+;                                          ;                         ; reg32:R8|q[5], reg32:R7|q[5], reg32:R6|q[5], reg32:R5|q[5], reg32:R4|q[5], reg32:R3|q[5],  ;
+;                                          ;                         ; reg32:R2|q[5], reg32:R1|q[5], regR0:R0|data[5]                                             ;
+; reg64:Z|data[36]                         ; Stuck at GND            ; reg32:IR|q[4], reg32:LO|q[4], reg32:HI|q[4], reg32:R15|q[4], reg32:R14|q[4],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[4], reg32:R12|q[4], reg32:R11|q[4], reg32:R10|q[4], reg32:R9|q[4],             ;
+;                                          ;                         ; reg32:R8|q[4], reg32:R7|q[4], reg32:R6|q[4], reg32:R5|q[4], reg32:R4|q[4], reg32:R3|q[4],  ;
+;                                          ;                         ; reg32:R2|q[4], reg32:R1|q[4], regR0:R0|data[4]                                             ;
+; reg64:Z|data[35]                         ; Stuck at GND            ; reg32:IR|q[3], reg32:LO|q[3], reg32:HI|q[3], reg32:R15|q[3], reg32:R14|q[3],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[3], reg32:R12|q[3], reg32:R11|q[3], reg32:R10|q[3], reg32:R9|q[3],             ;
+;                                          ;                         ; reg32:R8|q[3], reg32:R7|q[3], reg32:R6|q[3], reg32:R5|q[3], reg32:R4|q[3], reg32:R3|q[3],  ;
+;                                          ;                         ; reg32:R2|q[3], reg32:R1|q[3], regR0:R0|data[3]                                             ;
+; reg64:Z|data[34]                         ; Stuck at GND            ; reg32:IR|q[2], reg32:LO|q[2], reg32:HI|q[2], reg32:R15|q[2], reg32:R14|q[2],               ;
+;                                          ; due to stuck port clock ; reg32:R13|q[2], reg32:R12|q[2], reg32:R11|q[2], reg32:R10|q[2], reg32:R9|q[2],             ;
+;                                          ;                         ; reg32:R8|q[2], reg32:R7|q[2], reg32:R6|q[2], reg32:R5|q[2], reg32:R4|q[2], reg32:R3|q[2],  ;
+;                                          ;                         ; reg32:R2|q[2], reg32:R1|q[2], regR0:R0|data[2]                                             ;
+; reg64:Z|data[60]                         ; Stuck at GND            ; reg32:LO|q[28], reg32:HI|q[28], reg32:R15|q[28], reg32:R14|q[28], reg32:R13|q[28],         ;
+;                                          ; due to stuck port clock ; reg32:R12|q[28], reg32:R11|q[28], reg32:R10|q[28], reg32:R9|q[28], reg32:R8|q[28],         ;
+;                                          ;                         ; reg32:R7|q[28], reg32:R6|q[28], reg32:R5|q[28], reg32:R4|q[28], reg32:R3|q[28],            ;
+;                                          ;                         ; reg32:R2|q[28], reg32:R1|q[28], regR0:R0|data[28]                                          ;
+; ControlUnit:cu|present_state.reset_state ; Stuck at GND            ; ControlUnit:cu|present_state.add5, ControlUnit:cu|present_state.add4,                      ;
+;                                          ; due to stuck port clock ; ControlUnit:cu|present_state.add3, ControlUnit:cu|present_state.mul6,                      ;
+;                                          ;                         ; ControlUnit:cu|present_state.mul5, ControlUnit:cu|present_state.mul4,                      ;
+;                                          ;                         ; ControlUnit:cu|present_state.mul3, ControlUnit:cu|present_state.neg5,                      ;
+;                                          ;                         ; ControlUnit:cu|present_state.neg4, ControlUnit:cu|present_state.neg3,                      ;
+;                                          ;                         ; ControlUnit:cu|present_state.ld7, ControlUnit:cu|present_state.ld6,                        ;
+;                                          ;                         ; ControlUnit:cu|present_state.ld5, ControlUnit:cu|present_state.ld4,                        ;
+;                                          ;                         ; ControlUnit:cu|present_state.ld3, ControlUnit:cu|present_state.fetch2,                     ;
+;                                          ;                         ; ControlUnit:cu|present_state.fetch1, ControlUnit:cu|present_state.fetch0                   ;
+; reg64:Z|data[0]                          ; Stuck at GND            ; reg32:Y|q[31], reg32:Y|q[30], reg32:Y|q[29], reg32:Y|q[0]                                  ;
+;                                          ; due to stuck port clock ;                                                                                            ;
+; ControlUnit:cu|present_state~6           ; Lost Fanouts            ; ControlUnit:cu|present_state.br3, ControlUnit:cu|present_state.jal5,                       ;
+;                                          ;                         ; ControlUnit:cu|present_state.jal4, ControlUnit:cu|present_state.jal3                       ;
+; ControlUnit:cu|present_state.st7         ; Lost Fanouts            ; ControlUnit:cu|present_state.st6, ControlUnit:cu|present_state.ldr5,                       ;
+;                                          ;                         ; ControlUnit:cu|present_state.ldr4, ControlUnit:cu|present_state.ldr3                       ;
+; ControlUnit:cu|present_state~3           ; Lost Fanouts            ; ControlUnit:cu|present_state.inc3, ControlUnit:cu|present_state.ststk3                     ;
+; ControlUnit:cu|present_state~7           ; Lost Fanouts            ; ControlUnit:cu|present_state.ldstk3                                                        ;
+; ControlUnit:cu|present_state.ldr7        ; Lost Fanouts            ; ControlUnit:cu|present_state.ldr6                                                          ;
++------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+-------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                        ;
++------------------------+-------------+-------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                     ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                     ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                     ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                     ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                          ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                     ;
+; USE_WYS                ; OFF         ; Untyped                                                     ;
+; STYLE                  ; FAST        ; Untyped                                                     ;
+; CBXI_PARAMETER         ; add_sub_vhh ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                              ;
++------------------------+-------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+-------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                        ;
++------------------------+-------------+-------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                     ;
+; LPM_DIRECTION          ; SUB         ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                     ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                     ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                     ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                          ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                     ;
+; USE_WYS                ; OFF         ; Untyped                                                     ;
+; STYLE                  ; FAST        ; Untyped                                                     ;
+; CBXI_PARAMETER         ; add_sub_0jh ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                              ;
++------------------------+-------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component ;
++------------------------------------------------+-------------+-------------------------------+
+; Parameter Name                                 ; Value       ; Type                          ;
++------------------------------------------------+-------------+-------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON          ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS                           ; OFF         ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                            ; ON          ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF         ; IGNORE_CASCADE                ;
+; LPM_WIDTHA                                     ; 32          ; Signed Integer                ;
+; LPM_WIDTHB                                     ; 32          ; Signed Integer                ;
+; LPM_WIDTHP                                     ; 64          ; Signed Integer                ;
+; LPM_WIDTHR                                     ; 0           ; Untyped                       ;
+; LPM_WIDTHS                                     ; 1           ; Untyped                       ;
+; LPM_REPRESENTATION                             ; SIGNED      ; Untyped                       ;
+; LPM_PIPELINE                                   ; 0           ; Untyped                       ;
+; LATENCY                                        ; 0           ; Untyped                       ;
+; INPUT_A_IS_CONSTANT                            ; NO          ; Untyped                       ;
+; INPUT_B_IS_CONSTANT                            ; NO          ; Untyped                       ;
+; USE_EAB                                        ; OFF         ; Untyped                       ;
+; MAXIMIZE_SPEED                                 ; 5           ; Untyped                       ;
+; DEVICE_FAMILY                                  ; Cyclone III ; Untyped                       ;
+; CARRY_CHAIN                                    ; MANUAL      ; Untyped                       ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT         ; TECH_MAPPER_APEX20K           ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO        ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0           ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0           ; Untyped                       ;
+; CBXI_PARAMETER                                 ; mult_d7n    ; Untyped                       ;
+; INPUT_A_FIXED_VALUE                            ; Bx          ; Untyped                       ;
+; INPUT_B_FIXED_VALUE                            ; Bx          ; Untyped                       ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF         ; Untyped                       ;
++------------------------------------------------+-------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Signed Integer                                         ;
+; LPM_WIDTHD             ; 32             ; Signed Integer                                         ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_d9s ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component ;
++----------------+-----------------+-----------------------------------------------------------------+
+; Parameter Name ; Value           ; Type                                                            ;
++----------------+-----------------+-----------------------------------------------------------------+
+; LPM_PIPELINE   ; 0               ; Untyped                                                         ;
+; LPM_SHIFTTYPE  ; LOGICAL         ; Untyped                                                         ;
+; LPM_WIDTH      ; 32              ; Signed Integer                                                  ;
+; LPM_WIDTHDIST  ; 5               ; Signed Integer                                                  ;
+; CBXI_PARAMETER ; lpm_clshift_vjc ; Untyped                                                         ;
++----------------+-----------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component ;
++----------------+-----------------+-----------------------------------------------------------------+
+; Parameter Name ; Value           ; Type                                                            ;
++----------------+-----------------+-----------------------------------------------------------------+
+; LPM_PIPELINE   ; 0               ; Untyped                                                         ;
+; LPM_SHIFTTYPE  ; LOGICAL         ; Untyped                                                         ;
+; LPM_WIDTH      ; 32              ; Signed Integer                                                  ;
+; LPM_WIDTHDIST  ; 5               ; Signed Integer                                                  ;
+; CBXI_PARAMETER ; lpm_clshift_ukb ; Untyped                                                         ;
++----------------+-----------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component ;
++----------------+-----------------+-----------------------------------------------------------------+
+; Parameter Name ; Value           ; Type                                                            ;
++----------------+-----------------+-----------------------------------------------------------------+
+; LPM_PIPELINE   ; 0               ; Untyped                                                         ;
+; LPM_SHIFTTYPE  ; ROTATE          ; Untyped                                                         ;
+; LPM_WIDTH      ; 32              ; Signed Integer                                                  ;
+; LPM_WIDTHDIST  ; 5               ; Signed Integer                                                  ;
+; CBXI_PARAMETER ; lpm_clshift_jhc ; Untyped                                                         ;
++----------------+-----------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component ;
++----------------+-----------------+-----------------------------------------------------------------+
+; Parameter Name ; Value           ; Type                                                            ;
++----------------+-----------------+-----------------------------------------------------------------+
+; LPM_PIPELINE   ; 0               ; Untyped                                                         ;
+; LPM_SHIFTTYPE  ; ROTATE          ; Untyped                                                         ;
+; LPM_WIDTH      ; 32              ; Signed Integer                                                  ;
+; LPM_WIDTHDIST  ; 5               ; Signed Integer                                                  ;
+; CBXI_PARAMETER ; lpm_clshift_iib ; Untyped                                                         ;
++----------------+-----------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+--------------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                           ;
++------------------------+-------------+--------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                                                 ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                                        ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                                        ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                                                        ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                                        ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                                        ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                                        ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                                        ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                                        ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                                        ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                             ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                                        ;
+; USE_WYS                ; OFF         ; Untyped                                                                        ;
+; STYLE                  ; FAST        ; Untyped                                                                        ;
+; CBXI_PARAMETER         ; add_sub_jlh ; Untyped                                                                        ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                                   ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                                 ;
++------------------------+-------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|addOne:add2|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+--------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                         ;
++------------------------+-------------+--------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                               ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                      ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                      ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                                      ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                      ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                      ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                      ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                      ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                      ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                           ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                      ;
+; USE_WYS                ; OFF         ; Untyped                                                      ;
+; STYLE                  ; FAST        ; Untyped                                                      ;
+; CBXI_PARAMETER         ; add_sub_jlh ; Untyped                                                      ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                 ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                               ;
++------------------------+-------------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:alu1|addOne:add3|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+--------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                         ;
++------------------------+-------------+--------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                               ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                      ;
+; LPM_DIRECTION          ; ADD         ; Untyped                                                      ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                                      ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                      ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                      ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                      ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                      ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                      ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                           ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                      ;
+; USE_WYS                ; OFF         ; Untyped                                                      ;
+; STYLE                  ; FAST        ; Untyped                                                      ;
+; CBXI_PARAMETER         ; add_sub_jlh ; Untyped                                                      ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                 ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                               ;
++------------------------+-------------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component ;
++------------------------+-------------+----------------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                             ;
++------------------------+-------------+----------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 4           ; Signed Integer                                                                   ;
+; LPM_DECODES            ; 16          ; Signed Integer                                                                   ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                                          ;
+; CASCADE_CHAIN          ; MANUAL      ; Untyped                                                                          ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                                          ;
+; CBXI_PARAMETER         ; decode_lbf  ; Untyped                                                                          ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                                   ;
++------------------------+-------------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component ;
++------------------------+-------------+-------------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                          ;
++------------------------+-------------+-------------------------------------------------------------------------------+
+; lpm_width              ; 32          ; Signed Integer                                                                ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                                       ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                                       ;
+; CHAIN_SIZE             ; 8           ; Untyped                                                                       ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                                                                       ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                                       ;
+; CASCADE_CHAIN          ; MANUAL      ; Untyped                                                                       ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                            ;
+; CASCADE_CHAIN_LENGTH   ; 2           ; CASCADE_CHAIN_LENGTH                                                          ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                                                       ;
+; CBXI_PARAMETER         ; cmpr_vpj    ; Untyped                                                                       ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                                  ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                                ;
++------------------------+-------------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ControlUnit:cu ;
++----------------+---------+----------------------------------+
+; Parameter Name ; Value   ; Type                             ;
++----------------+---------+----------------------------------+
+; fetch0         ; 0       ; Signed Integer                   ;
+; fetch1         ; 1       ; Signed Integer                   ;
+; fetch2         ; 2       ; Signed Integer                   ;
+; add3           ; 3       ; Signed Integer                   ;
+; add4           ; 4       ; Signed Integer                   ;
+; add5           ; 5       ; Signed Integer                   ;
+; addi4          ; 6       ; Signed Integer                   ;
+; mul3           ; 7       ; Signed Integer                   ;
+; mul4           ; 8       ; Signed Integer                   ;
+; mul5           ; 9       ; Signed Integer                   ;
+; mul6           ; 10      ; Signed Integer                   ;
+; neg3           ; 11      ; Signed Integer                   ;
+; neg4           ; 12      ; Signed Integer                   ;
+; neg5           ; 13      ; Signed Integer                   ;
+; ld3            ; 14      ; Signed Integer                   ;
+; ld4            ; 15      ; Signed Integer                   ;
+; ld5            ; 16      ; Signed Integer                   ;
+; ld6            ; 17      ; Signed Integer                   ;
+; ld7            ; 18      ; Signed Integer                   ;
+; ldi5           ; 19      ; Signed Integer                   ;
+; ldr3           ; 20      ; Signed Integer                   ;
+; ldr4           ; 21      ; Signed Integer                   ;
+; ldr5           ; 22      ; Signed Integer                   ;
+; ldr6           ; 23      ; Signed Integer                   ;
+; ldr7           ; 24      ; Signed Integer                   ;
+; st6            ; 25      ; Signed Integer                   ;
+; st7            ; 26      ; Signed Integer                   ;
+; br3            ; 27      ; Signed Integer                   ;
+; br4            ; 28      ; Signed Integer                   ;
+; jp3            ; 29      ; Signed Integer                   ;
+; jal3           ; 30      ; Signed Integer                   ;
+; jal4           ; 31      ; Signed Integer                   ;
+; jal5           ; 32      ; Signed Integer                   ;
+; mfhi3          ; 33      ; Signed Integer                   ;
+; mflo3          ; 34      ; Signed Integer                   ;
+; out3           ; 35      ; Signed Integer                   ;
+; in3            ; 36      ; Signed Integer                   ;
+; halt3          ; 38      ; Signed Integer                   ;
+; inc3           ; 39      ; Signed Integer                   ;
+; inc4           ; 40      ; Signed Integer                   ;
+; ldstk3         ; 41      ; Signed Integer                   ;
+; ldstk4         ; 42      ; Signed Integer                   ;
+; ststk3         ; 43      ; Signed Integer                   ;
+; ststk4         ; 44      ; Signed Integer                   ;
+; end_state      ; 0111110 ; Unsigned Binary                  ;
+; reset_state    ; 0111111 ; Unsigned Binary                  ;
++----------------+---------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                          ;
++---------------------------------------+-------------------------------------------------+
+; Name                                  ; Value                                           ;
++---------------------------------------+-------------------------------------------------+
+; Number of entity instances            ; 1                                               ;
+; Entity Instance                       ; alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component ;
+;     -- LPM_WIDTHA                     ; 32                                              ;
+;     -- LPM_WIDTHB                     ; 32                                              ;
+;     -- LPM_WIDTHP                     ; 64                                              ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                          ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                              ;
+;     -- USE_EAB                        ; OFF                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                              ;
++---------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit:cu"                                                                                                                 ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                     ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; run      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
+; stateOut ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (1 bits) it drives; bit(s) "stateOut[5..1]" have no fanouts ;
+; stateOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "outPort:port2"                                                                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; dataOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg32:MAR"                                                                                                             ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (9 bits) it drives; bit(s) "q[31..9]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Apr 07 11:31:42 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off computer -c computer
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file reg32.v
+    Info (12023): Found entity 1: reg32
+Info (12021): Found 1 design units, including 1 entities, in source file computer.v
+    Info (12023): Found entity 1: computer
+Info (12021): Found 1 design units, including 1 entities, in source file reg64.v
+    Info (12023): Found entity 1: reg64
+Info (12021): Found 1 design units, including 1 entities, in source file bus32.v
+    Info (12023): Found entity 1: Bus32
+Info (12021): Found 1 design units, including 1 entities, in source file encoder.v
+    Info (12023): Found entity 1: encoder
+Info (12021): Found 1 design units, including 1 entities, in source file mdr.v
+    Info (12023): Found entity 1: mdr
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: alu
+Info (12021): Found 1 design units, including 1 entities, in source file add32.v
+    Info (12023): Found entity 1: add32
+Info (12021): Found 1 design units, including 1 entities, in source file sub32.v
+    Info (12023): Found entity 1: sub32
+Info (12021): Found 1 design units, including 1 entities, in source file div32.v
+    Info (12023): Found entity 1: div32
+Info (12021): Found 1 design units, including 1 entities, in source file mul32.v
+    Info (12023): Found entity 1: mul32
+Info (12021): Found 1 design units, including 1 entities, in source file or32.v
+    Info (12023): Found entity 1: or32
+Info (12021): Found 1 design units, including 1 entities, in source file and32.v
+    Info (12023): Found entity 1: and32
+Info (12021): Found 1 design units, including 1 entities, in source file not32.v
+    Info (12023): Found entity 1: not32
+Info (12021): Found 1 design units, including 1 entities, in source file addone.v
+    Info (12023): Found entity 1: addOne
+Info (12021): Found 1 design units, including 1 entities, in source file neg32.v
+    Info (12023): Found entity 1: neg32
+Info (12021): Found 1 design units, including 1 entities, in source file shl32.v
+    Info (12023): Found entity 1: shl32
+Info (12021): Found 1 design units, including 1 entities, in source file shr32.v
+    Info (12023): Found entity 1: shr32
+Info (12021): Found 1 design units, including 1 entities, in source file rol32.v
+    Info (12023): Found entity 1: rol32
+Info (12021): Found 1 design units, including 1 entities, in source file ror32.v
+    Info (12023): Found entity 1: ror32
+Info (12021): Found 1 design units, including 1 entities, in source file computer_tb.v
+    Info (12023): Found entity 1: computer_tb
+Info (12021): Found 1 design units, including 1 entities, in source file clock.v
+    Info (12023): Found entity 1: Clock
+Info (12021): Found 1 design units, including 1 entities, in source file booth32.v
+    Info (12023): Found entity 1: booth32
+Info (12021): Found 1 design units, including 1 entities, in source file booth32_tb.v
+    Info (12023): Found entity 1: booth32_tb
+Info (12021): Found 2 design units, including 2 entities, in source file cla16.v
+    Info (12023): Found entity 1: cla4
+    Info (12023): Found entity 2: cla16
+Info (12021): Found 1 design units, including 1 entities, in source file cla16_tb.v
+    Info (12023): Found entity 1: cla16_tb
+Info (12021): Found 1 design units, including 1 entities, in source file selectandencode.v
+    Info (12023): Found entity 1: selectAndEncode
+Info (12021): Found 1 design units, including 1 entities, in source file decode4to16.v
+    Info (12023): Found entity 1: Decode4to16
+Info (12021): Found 1 design units, including 1 entities, in source file regr0.v
+    Info (12023): Found entity 1: regR0
+Info (12021): Found 1 design units, including 1 entities, in source file conff.v
+    Info (12023): Found entity 1: conFF
+Info (12021): Found 1 design units, including 1 entities, in source file conffcompare.v
+    Info (12023): Found entity 1: conFFCompare
+Info (12021): Found 1 design units, including 1 entities, in source file outport.v
+    Info (12023): Found entity 1: outPort
+Info (12021): Found 1 design units, including 1 entities, in source file inport.v
+    Info (12023): Found entity 1: inPort
+Info (12021): Found 1 design units, including 1 entities, in source file computerp2_tb.v
+    Info (12023): Found entity 1: computerP2_tb
+Warning (10335): Unrecognized synthesis attribute "ram_file" at ram512.v(13)
+Info (12021): Found 1 design units, including 1 entities, in source file ram512.v
+    Info (12023): Found entity 1: ram512
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 1 design units, including 1 entities, in source file computerp3_tb.v
+    Info (12023): Found entity 1: computerP3_tb
+Info (12021): Found 1 design units, including 1 entities, in source file stack32.v
+    Info (12023): Found entity 1: stack32
+Warning (10236): Verilog HDL Implicit Net warning at computer.v(26): created implicit net for "clkOut"
+Warning (10236): Verilog HDL Implicit Net warning at computer.v(113): created implicit net for "conFF_Out"
+Warning (10236): Verilog HDL Implicit Net warning at computer.v(128): created implicit net for "stateOut"
+Info (12127): Elaborating entity "computer" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at computer.v(26): object "clkOut" assigned a value but never read
+Info (12128): Elaborating entity "Clock" for hierarchy "Clock:clkInstance"
+Info (12128): Elaborating entity "regR0" for hierarchy "regR0:R0"
+Info (12128): Elaborating entity "reg32" for hierarchy "reg32:R1"
+Info (12128): Elaborating entity "reg64" for hierarchy "reg64:Z"
+Warning (10240): Verilog HDL Always Construct warning at reg64.v(20): inferring latch(es) for variable "LO", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at reg64.v(20): inferring latch(es) for variable "HI", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "HI[0]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[1]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[2]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[3]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[4]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[5]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[6]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[7]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[8]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[9]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[10]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[11]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[12]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[13]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[14]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[15]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[16]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[17]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[18]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[19]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[20]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[21]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[22]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[23]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[24]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[25]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[26]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[27]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[28]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[29]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[30]" at reg64.v(22)
+Info (10041): Inferred latch for "HI[31]" at reg64.v(22)
+Info (10041): Inferred latch for "LO[0]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[1]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[2]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[3]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[4]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[5]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[6]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[7]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[8]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[9]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[10]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[11]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[12]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[13]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[14]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[15]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[16]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[17]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[18]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[19]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[20]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[21]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[22]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[23]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[24]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[25]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[26]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[27]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[28]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[29]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[30]" at reg64.v(20)
+Info (10041): Inferred latch for "LO[31]" at reg64.v(20)
+Info (12128): Elaborating entity "encoder" for hierarchy "encoder:encoder1"
+Warning (10240): Verilog HDL Always Construct warning at encoder.v(13): inferring latch(es) for variable "select", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "select[0]" at encoder.v(82)
+Info (10041): Inferred latch for "select[1]" at encoder.v(82)
+Info (10041): Inferred latch for "select[2]" at encoder.v(82)
+Info (10041): Inferred latch for "select[3]" at encoder.v(82)
+Info (10041): Inferred latch for "select[4]" at encoder.v(82)
+Info (12128): Elaborating entity "Bus32" for hierarchy "Bus32:bus1"
+Warning (10270): Verilog HDL Case Statement warning at Bus32.v(13): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at Bus32.v(13): inferring latch(es) for variable "busDataOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "busDataOut[0]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[1]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[2]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[3]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[4]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[5]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[6]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[7]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[8]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[9]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[10]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[11]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[12]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[13]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[14]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[15]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[16]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[17]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[18]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[19]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[20]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[21]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[22]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[23]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[24]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[25]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[26]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[27]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[28]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[29]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[30]" at Bus32.v(13)
+Info (10041): Inferred latch for "busDataOut[31]" at Bus32.v(13)
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1"
+Info (12128): Elaborating entity "add32" for hierarchy "alu:alu1|add32:add1"
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12133): Instantiated megafunction "alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component" with the following parameter:
+    Info (12134): Parameter "lpm_direction" = "ADD"
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vhh.tdf
+    Info (12023): Found entity 1: add_sub_vhh
+Info (12128): Elaborating entity "add_sub_vhh" for hierarchy "alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component|add_sub_vhh:auto_generated"
+Info (12128): Elaborating entity "sub32" for hierarchy "alu:alu1|sub32:sub1"
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12133): Instantiated megafunction "alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component" with the following parameter:
+    Info (12134): Parameter "lpm_direction" = "SUB"
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_0jh.tdf
+    Info (12023): Found entity 1: add_sub_0jh
+Info (12128): Elaborating entity "add_sub_0jh" for hierarchy "alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component|add_sub_0jh:auto_generated"
+Info (12128): Elaborating entity "mul32" for hierarchy "alu:alu1|mul32:mul1"
+Info (12128): Elaborating entity "lpm_mult" for hierarchy "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component"
+Info (12133): Instantiated megafunction "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "MAXIMIZE_SPEED=5"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_MULT"
+    Info (12134): Parameter "lpm_widtha" = "32"
+    Info (12134): Parameter "lpm_widthb" = "32"
+    Info (12134): Parameter "lpm_widthp" = "64"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_d7n.tdf
+    Info (12023): Found entity 1: mult_d7n
+Info (12128): Elaborating entity "mult_d7n" for hierarchy "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated"
+Info (12128): Elaborating entity "div32" for hierarchy "alu:alu1|div32:div1"
+Info (12128): Elaborating entity "lpm_divide" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component"
+Info (12133): Instantiated megafunction "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component" with the following parameter:
+    Info (12134): Parameter "lpm_drepresentation" = "SIGNED"
+    Info (12134): Parameter "lpm_hint" = "LPM_REMAINDERPOSITIVE=TRUE"
+    Info (12134): Parameter "lpm_nrepresentation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_DIVIDE"
+    Info (12134): Parameter "lpm_widthd" = "32"
+    Info (12134): Parameter "lpm_widthn" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_d9s.tdf
+    Info (12023): Found entity 1: lpm_divide_d9s
+Info (12128): Elaborating entity "lpm_divide_d9s" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component|lpm_divide_d9s:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_39h.tdf
+    Info (12023): Found entity 1: sign_div_unsign_39h
+Info (12128): Elaborating entity "sign_div_unsign_39h" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component|lpm_divide_d9s:auto_generated|sign_div_unsign_39h:divider"
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_t8f.tdf
+    Info (12023): Found entity 1: alt_u_div_t8f
+Info (12128): Elaborating entity "alt_u_div_t8f" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component|lpm_divide_d9s:auto_generated|sign_div_unsign_39h:divider|alt_u_div_t8f:divider"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_unc.tdf
+    Info (12023): Found entity 1: add_sub_unc
+Info (12128): Elaborating entity "add_sub_unc" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component|lpm_divide_d9s:auto_generated|sign_div_unsign_39h:divider|alt_u_div_t8f:divider|add_sub_unc:add_sub_0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
+    Info (12023): Found entity 1: add_sub_vnc
+Info (12128): Elaborating entity "add_sub_vnc" for hierarchy "alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component|lpm_divide_d9s:auto_generated|sign_div_unsign_39h:divider|alt_u_div_t8f:divider|add_sub_vnc:add_sub_1"
+Info (12128): Elaborating entity "and32" for hierarchy "alu:alu1|and32:and1"
+Info (12128): Elaborating entity "or32" for hierarchy "alu:alu1|or32:or1"
+Info (12128): Elaborating entity "shr32" for hierarchy "alu:alu1|shr32:shr1"
+Info (12128): Elaborating entity "lpm_clshift" for hierarchy "alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12133): Instantiated megafunction "alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component" with the following parameter:
+    Info (12134): Parameter "lpm_shifttype" = "LOGICAL"
+    Info (12134): Parameter "lpm_type" = "LPM_CLSHIFT"
+    Info (12134): Parameter "lpm_width" = "32"
+    Info (12134): Parameter "lpm_widthdist" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_clshift_vjc.tdf
+    Info (12023): Found entity 1: lpm_clshift_vjc
+Info (12128): Elaborating entity "lpm_clshift_vjc" for hierarchy "alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component|lpm_clshift_vjc:auto_generated"
+Info (12128): Elaborating entity "shl32" for hierarchy "alu:alu1|shl32:shl1"
+Info (12128): Elaborating entity "lpm_clshift" for hierarchy "alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12133): Instantiated megafunction "alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component" with the following parameter:
+    Info (12134): Parameter "lpm_shifttype" = "LOGICAL"
+    Info (12134): Parameter "lpm_type" = "LPM_CLSHIFT"
+    Info (12134): Parameter "lpm_width" = "32"
+    Info (12134): Parameter "lpm_widthdist" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_clshift_ukb.tdf
+    Info (12023): Found entity 1: lpm_clshift_ukb
+Info (12128): Elaborating entity "lpm_clshift_ukb" for hierarchy "alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component|lpm_clshift_ukb:auto_generated"
+Info (12128): Elaborating entity "ror32" for hierarchy "alu:alu1|ror32:ror1"
+Info (12128): Elaborating entity "lpm_clshift" for hierarchy "alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12133): Instantiated megafunction "alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component" with the following parameter:
+    Info (12134): Parameter "lpm_shifttype" = "ROTATE"
+    Info (12134): Parameter "lpm_type" = "LPM_CLSHIFT"
+    Info (12134): Parameter "lpm_width" = "32"
+    Info (12134): Parameter "lpm_widthdist" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_clshift_jhc.tdf
+    Info (12023): Found entity 1: lpm_clshift_jhc
+Info (12128): Elaborating entity "lpm_clshift_jhc" for hierarchy "alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component|lpm_clshift_jhc:auto_generated"
+Info (12128): Elaborating entity "rol32" for hierarchy "alu:alu1|rol32:rol1"
+Info (12128): Elaborating entity "lpm_clshift" for hierarchy "alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component"
+Info (12133): Instantiated megafunction "alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component" with the following parameter:
+    Info (12134): Parameter "lpm_shifttype" = "ROTATE"
+    Info (12134): Parameter "lpm_type" = "LPM_CLSHIFT"
+    Info (12134): Parameter "lpm_width" = "32"
+    Info (12134): Parameter "lpm_widthdist" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_clshift_iib.tdf
+    Info (12023): Found entity 1: lpm_clshift_iib
+Info (12128): Elaborating entity "lpm_clshift_iib" for hierarchy "alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component|lpm_clshift_iib:auto_generated"
+Info (12128): Elaborating entity "neg32" for hierarchy "alu:alu1|neg32:neg1"
+Info (12128): Elaborating entity "addOne" for hierarchy "alu:alu1|neg32:neg1|addOne:twosCompAdd"
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12130): Elaborated megafunction instantiation "alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component"
+Info (12133): Instantiated megafunction "alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component" with the following parameter:
+    Info (12134): Parameter "lpm_direction" = "ADD"
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES,CIN_USED=NO"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_jlh.tdf
+    Info (12023): Found entity 1: add_sub_jlh
+Info (12128): Elaborating entity "add_sub_jlh" for hierarchy "alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component|add_sub_jlh:auto_generated"
+Info (12128): Elaborating entity "not32" for hierarchy "alu:alu1|not32:not1"
+Info (12128): Elaborating entity "mdr" for hierarchy "mdr:MDR"
+Info (12128): Elaborating entity "ram512" for hierarchy "ram512:dodgeram"
+Warning (10235): Verilog HDL Always Construct warning at ram512.v(85): variable "address" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ram512.v(87): variable "data_in" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ram512.v(87): variable "address" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info (12128): Elaborating entity "stack32" for hierarchy "stack32:stack"
+Warning (10235): Verilog HDL Always Construct warning at stack32.v(27): variable "sp" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at stack32.v(31): variable "data_in" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at stack32.v(31): variable "sp" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at stack32.v(32): variable "sp" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at stack32.v(25): inferring latch(es) for variable "sp", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "sp[0]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[1]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[2]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[3]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[4]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[5]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[6]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[7]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[8]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[9]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[10]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[11]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[12]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[13]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[14]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[15]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[16]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[17]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[18]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[19]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[20]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[21]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[22]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[23]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[24]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[25]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[26]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[27]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[28]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[29]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[30]" at stack32.v(30)
+Info (10041): Inferred latch for "sp[31]" at stack32.v(30)
+Info (12128): Elaborating entity "selectAndEncode" for hierarchy "selectAndEncode:encode"
+Info (12128): Elaborating entity "Decode4to16" for hierarchy "selectAndEncode:encode|Decode4to16:decoder"
+Info (12128): Elaborating entity "lpm_decode" for hierarchy "selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component"
+Info (12130): Elaborated megafunction instantiation "selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component"
+Info (12133): Instantiated megafunction "selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component" with the following parameter:
+    Info (12134): Parameter "lpm_decodes" = "16"
+    Info (12134): Parameter "lpm_type" = "LPM_DECODE"
+    Info (12134): Parameter "lpm_width" = "4"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_lbf.tdf
+    Info (12023): Found entity 1: decode_lbf
+Info (12128): Elaborating entity "decode_lbf" for hierarchy "selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component|decode_lbf:auto_generated"
+Info (12128): Elaborating entity "conFF" for hierarchy "conFF:compare"
+Info (12128): Elaborating entity "conFFCompare" for hierarchy "conFF:compare|conFFCompare:comparator"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_vpj.tdf
+    Info (12023): Found entity 1: cmpr_vpj
+Info (12128): Elaborating entity "cmpr_vpj" for hierarchy "conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component|cmpr_vpj:auto_generated"
+Info (12128): Elaborating entity "inPort" for hierarchy "inPort:port1"
+Info (12128): Elaborating entity "outPort" for hierarchy "outPort:port2"
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:cu"
+Warning (10230): Verilog HDL assignment warning at ControlUnit.v(16): truncated value with size 7 to match size of target (6)
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(240): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(242): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(244): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(247): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(267): variable "conFF" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(278): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at ControlUnit.v(235): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at ControlUnit.v(235): all case item expressions in this case statement are onehot
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_mult1"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_mult3"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_mult5"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|w569w[0]"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_out4"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_out6"
+        Warning (14320): Synthesized away node "alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component|mult_d7n:auto_generated|mac_out8"
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (17049): 93 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/altera/13.0sp1/elec374/project/output_files/computer.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 33 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "InPort_dataIn[0]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[1]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[2]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[3]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[4]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[5]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[6]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[7]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[8]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[9]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[10]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[11]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[12]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[13]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[14]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[15]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[16]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[17]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[18]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[19]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[20]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[21]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[22]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[23]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[24]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[25]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[26]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[27]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[28]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[29]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[30]"
+    Warning (15610): No output dependent on input pin "InPort_dataIn[31]"
+    Warning (15610): No output dependent on input pin "reset"
+Info (21057): Implemented 33 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 33 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 502 megabytes
+    Info: Processing ended: Fri Apr 07 11:31:45 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/altera/13.0sp1/elec374/project/output_files/computer.map.smsg.
+
+

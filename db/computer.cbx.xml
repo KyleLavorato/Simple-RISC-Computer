@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="computer">
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|add32:add1|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_vhh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|neg32:neg1|addOne:twosCompAdd|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_jlh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|addOne:add2|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_jlh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|div32:div1|lpm_divide:LPM_DIVIDE_component" CBX_FILE_NAME="lpm_divide_d9s.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|mul32:mul1|lpm_mult:lpm_mult_component" CBX_FILE_NAME="mult_d7n.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|rol32:rol1|lpm_clshift:LPM_CLSHIFT_component" CBX_FILE_NAME="lpm_clshift_iib.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|ror32:ror1|lpm_clshift:LPM_CLSHIFT_component" CBX_FILE_NAME="lpm_clshift_jhc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|shl32:shl1|lpm_clshift:LPM_CLSHIFT_component" CBX_FILE_NAME="lpm_clshift_ukb.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|shr32:shr1|lpm_clshift:LPM_CLSHIFT_component" CBX_FILE_NAME="lpm_clshift_vjc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|sub32:sub1|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_0jh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|selectAndEncode:encode|Decode4to16:decoder|lpm_decode:LPM_DECODE_component" CBX_FILE_NAME="decode_lbf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|alu:alu1|addOne:add3|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_jlh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|computer|conFF:compare|conFFCompare:comparator|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_vpj.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

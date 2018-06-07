@@ -1,0 +1,19 @@
+module inPort(
+	input wire[31:0] dataIn,
+	input wire clr, clk, en
+);
+
+reg[31:0] dataOut;
+
+initial begin
+	dataOut <= 0;
+end
+
+always @(posedge clk) begin
+	if(clr == 1)
+		dataOut <= 0;
+	else if(en == 1)
+		dataOut <= dataIn;
+end
+
+endmodule

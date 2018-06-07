@@ -1,0 +1,108 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "02/21/2017 14:49:44"
+                                                                                
+// Verilog Test Bench template for design : computer
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module computer_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg PCinc_en;
+reg clk;
+reg clr;
+// wires                                               
+wire [31:0]  Busmux_out;
+wire [31:0]  HI_test;
+wire [31:0]  LO_test;
+wire [31:0]  PC_test;
+wire [31:0]  Zhigh_test;
+wire [31:0]  Zlow_test;
+wire [31:0]  r0_test;
+wire [31:0]  r1_test;
+wire [31:0]  r2_test;
+wire [31:0]  r3_test;
+wire [31:0]  r4_test;
+wire [31:0]  r5_test;
+wire [31:0]  r6_test;
+wire [31:0]  r7_test;
+wire [31:0]  r8_test;
+wire [31:0]  r9_test;
+wire [31:0]  r10_test;
+wire [31:0]  r11_test;
+wire [31:0]  r12_test;
+wire [31:0]  r13_test;
+wire [31:0]  r14_test;
+wire [31:0]  r15_test;
+
+// assign statements (if any)                          
+computer i1 (
+// port map - connection between master ports and signals/registers   
+	.Busmux_out(Busmux_out),
+	.HI_test(HI_test),
+	.LO_test(LO_test),
+	.PC_test(PC_test),
+	.PCinc_en(PCinc_en),
+	.Zhigh_test(Zhigh_test),
+	.Zlow_test(Zlow_test),
+	.clk(clk),
+	.clr(clr),
+	.r0_test(r0_test),
+	.r1_test(r1_test),
+	.r2_test(r2_test),
+	.r3_test(r3_test),
+	.r4_test(r4_test),
+	.r5_test(r5_test),
+	.r6_test(r6_test),
+	.r7_test(r7_test),
+	.r8_test(r8_test),
+	.r9_test(r9_test),
+	.r10_test(r10_test),
+	.r11_test(r11_test),
+	.r12_test(r12_test),
+	.r13_test(r13_test),
+	.r14_test(r14_test),
+	.r15_test(r15_test)
+);
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin                          
+                                                       
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+

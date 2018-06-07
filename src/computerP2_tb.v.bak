@@ -1,0 +1,243 @@
+// Testbench for the main datapath
+module computerP2_tb;
+
+// Testing Counters
+reg [31:0] cycle;
+reg [31:0] test;
+
+wire clkOut, conFF_Out;
+wire [31:0] busDataOut;
+// Output Signals
+wire [31:0] MAR_test, MDR_test, outPort_test, r0_test, r1_test, r2_test, r3_test, r4_test, r5_test, r6_test, r7_test, r8_test, r9_test, 
+	r10_test, r11_test, r12_test, r13_test, r14_test, r15_test, HI_test, LO_test, PC_test, Zhigh_test, 
+	Zlow_test, Y_test, IR_test;
+// Special Signals
+reg clr, PCinc_en, read, write;
+// Enable Signals
+reg HIIn, LOIn, PCIn, IRIn, MARIn, MDRIn, conIn, outPortIn, Y_en, Z_en;
+// Output Signals (Encoder Input)
+reg HIOut, LOOut, PCOut, IROut, MAROut, MDROut, InPortOut, cOut, Zlow_en, Zhigh_en;
+// Select and Encode signals
+reg Gra, Grb, Grc, Rin, Rout, BAout;
+reg [4:0] opcode;
+reg [31:0] busDataIn;
+
+computer cp(clkOut, conFF_Out,
+	MAR_test, MDR_test, outPort_test, r0_test, r1_test, r2_test, r3_test, r4_test, r5_test, 
+		r6_test, r7_test, r8_test, r9_test, r10_test, r11_test, r12_test, r13_test, r14_test, 
+		r15_test, HI_test, LO_test, PC_test, Zhigh_test, Zlow_test, Y_test, IR_test, busDataOut, 
+	clr, PCinc_en, read, write, Y_en, Z_en, Zlow_en, Zhigh_en, 
+	HIIn, LOIn, PCIn, IRIn, MARIn, MDRIn, conIn, outPortIn,
+	HIOut, LOOut, PCOut, IROut, MAROut, MDROut, InPortOut, cOut,
+	Gra, Grb, Grc, Rin, Rout, BAout,
+	opcode,
+	busDataIn
+);
+
+initial begin
+	clr <= 1;
+	#100
+	setControlLow;
+	#100;
+	setPC;
+	ldTest;
+end
+	
+	
+// Set all control signals that are an input to the datapath to low
+task setControlLow; begin
+	// Enable Signals
+	HIIn <= 0; LOIn <= 0; PCIn <= 0; IRIn <= 0; MARIn <= 0; MDRIn <= 0; Z_en <= 0; Y_en <= 0;
+	conIn <= 0; outPortIn <= 0;
+	// Output Signals
+	HIOut <= 0; LOOut <= 0; PCOut <= 0; IROut <= 0; MAROut <= 0; MDROut <= 0; InPortOut <= 0; 
+		Zlow_en <= 0; Zhigh_en <= 0; cOut <= 0;
+	// Special Control Signals
+	clr <= 0; PCinc_en <= 0; read <= 0; write <= 0;
+	Gra <= 0; Grb <= 0; Grc <= 0; Rin <= 0; Rout <= 0; BAout <= 0;
+	opcode <= 5'b00000;
+	busDataIn <= 32'bzzzzzzzz_zzzzzzzz_zzzzzzzz_zzzzzzzz;
+end
+endtask
+
+
+task setPC; begin
+	setControlLow; busDataIn <= 66; InPortOut <= 1; PCIn <= 1;
+	#100;
+end
+endtask
+
+
+task instructionFetch; begin
+	// T0
+	cycle <= 0; setControlLow; PCOut <= 1; MARIn <= 1; PCinc_en <= 1; Z_en <= 1;
+	#100
+	// T1
+	cycle <= 1; setControlLow; Zlow_en <= 1; PCIn <= 1; read <= 1; MDRIn <= 1;
+	#100
+	// T2
+	cycle <= 2; setControlLow; MDROut <= 1; IRIn <= 1;
+	#100;
+end
+endtask
+
+
+task ldTest; begin
+	// add R1, R2, R3
+	#100
+	test <= 1;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Grb <= 1; BAout <= 1; Y_en <= 1;
+	#100
+	// T4
+	cycle <= 4; setControlLow; cOut <= 1; opcode <= 5'b001001; Z_en <= 1;
+	#100
+	// T5
+	cycle <= 5; setControlLow; Zlow_en <= 1; MARIn <= 1;
+	#100
+	// T6
+	cycle <= 6; setControlLow; read <= 1; MDRIn <= 1;
+	#100
+	// T7
+	cycle <= 7; setControlLow; MDROut <= 1; Gra <= 1; Rin <= 1;
+	#100;
+end
+endtask
+
+
+task ldiTest; begin
+	// add R1, R2, R3
+	#100
+	test <= 2;
+	// T0 - T2
+	instructionFetch;  
+	// T3
+	cycle <= 3; setControlLow; Grb <= 1; BAout <= 1; Y_en <= 1;
+	#100
+	// T4
+	cycle <= 4; setControlLow; cOut <= 1; opcode <= 5'b001001; Z_en <= 1;
+	#100
+	// T5
+	cycle <= 5; setControlLow; Zlow_en <= 1; Gra <= 1; Rin <= 1;
+	#100;
+end
+endtask
+
+
+task ldrTest; begin
+	// add R1, R2, R3
+	#100
+	test <= 3;
+	// T0
+	cycle <= 0; setControlLow; PCOut <= 1; MARIn <= 1; PCinc_en <= 1; Z_en <= 1;
+	#100
+	// T1
+	cycle <= 1; setControlLow; Zlow_en <= 1; PCIn <= 1; Y_en <= 1; read <= 1; MDRIn <= 1;
+	#100
+	// T2
+	cycle <= 2; setControlLow; MDROut <= 1; IRIn <= 1;
+	#100
+	// T3
+	cycle <= 3; setControlLow; cOut <= 1; opcode <= 5'b001001; Z_en <= 1;
+	#100
+	// T4
+	cycle <= 4; setControlLow; Zlow_en <= 1; MARIn <= 1;
+	#100
+	// T5
+	cycle <= 5; setControlLow; read <= 1; MDRIn <= 1;
+	#100
+	// T6
+	cycle <= 6; setControlLow; MDROut <= 1; Gra <= 1; Rin <= 1;
+	#100;
+end
+endtask
+
+
+// DO STORE TESTS HERE (3x)
+
+
+task addiTest; begin
+	// add R1, R2, R3
+	#100
+	test <= 4;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Grb <= 1; Rout <= 1; Y_en <= 1;
+	#100
+	// T4
+	cycle <= 4; setControlLow; cOut <= 1; opcode <= 5'b001001; Z_en <= 1;
+	#100
+	// T5
+	cycle <= 5; setControlLow; Zlow_en <= 1; Gra <= 1; Rin <= 1;
+	#100;
+end
+endtask
+
+
+task branchTest; begin // DO MOAR HERE; 4 REQUIRED (BASE SEQUENCE)
+	// add R1, R2, R3
+	#100
+	test <= 5;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Gra <= 1; Rout <= 1; conIn <= 1;
+	#100
+	// T4
+	cycle <= 4; setControlLow; Grb <= 1; Rout <= 1; 
+	if(conFF_Out == 1) begin
+		PCIn <= 1;
+	end
+	#100;
+end
+endtask
+
+
+task jumpTest; begin 
+	// add R1, R2, R3
+	#100
+	test <= 5;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Gra <= 1; Rout <= 1; PCIn <= 1;
+	#100;
+end
+endtask
+
+
+// DO MFHI AND MFLO HERE
+
+
+task outportTest; begin // DO MOAR HERE; 4 REQUIRED (BASE SEQUENCE)
+	// add R1, R2, R3
+	#100
+	test <= 5;
+	// Load Register
+	cycle <= -1; busDataIn <= 75; inPortOut <= 1; Gra <= 1; Rin <= 1;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Gra <= 1; Rout <= 1; outPortIn <= 1;
+	#100;
+end
+endtask
+
+
+task inportTest; begin // DO MOAR HERE; 4 REQUIRED (BASE SEQUENCE)
+	// add R1, R2, R3
+	#100
+	test <= 5;
+	// T0 - T2
+	instructionFetch;
+	// T3
+	cycle <= 3; setControlLow; Gra <= 1; Rout <= 1; busDataIn <= 50; inPortOut <= 1;
+	#100;
+end
+endtask
+
+
+endmodule

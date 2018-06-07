@@ -1,0 +1,57 @@
+//32x32 Booth multiplier
+
+module mul32bitBooth(
+	output wire [64:1]data_out, 
+	input wire [31:0]a, b);   
+	
+	integer i; //For loop temp var.    
+
+	//Product register instance.  
+	reg [64:0] product;  
+	initial product <= 0;  
+	assign data_out[64:1] = product[64:1];    
+	
+	//Partial product output for adder and subber.  
+	wire [31:0] part_product_out;  
+	assign part_product_out = product[64:33];     
+	
+	//Partial product plus b  
+	wire [31:0]addOut;  
+	add32bitUnsignedM adder(part_product_out, b, addOut);    
+	
+	//Partial product minus b  
+	wire [31:0]subOut;  
+	sub32bitM subber(part_product_out, b, subOut);   
+ 
+ 
+	always @(a, b, addOut, subOut)  
+		begin   
+	
+			//Initial product declarations.   
+			product[0]=0;   
+			product[64:33]=4'b0;   
+			product[32:1] = a;   
+			#1   
+			for(i=0;i<32;i=i+1) begin    
+				#1    
+				//If bits are '01', then add b.    
+				if (product[1] == 0 && product[0] ==1) begin     
+					product[64:33] = addOut;   
+				end        
+				
+				//If bits are '10', then sub b. 
+
+	 
+				else if (product[1] == 1 && product[0] ==0) begin     
+					product[64:33] = subOut;    
+				end    
+				//Otherwise, do nothing.    
+				#1        
+				
+				//Shift product over.    
+				product = product >> 1;   
+				product[64]=product[63];  
+			end 
+ 
+		end
+endmodule 

@@ -1,0 +1,7 @@
+module selectAndEncode(
+	output wire r0In, r1In, r2In, r3In, r4In, r5In, r6In, r7In, r8In, r9In, r10In, r11In,
+	r12In, r13In, r14In, r15In,
+	output wire r0Out, r1Out, r2Out, r3Out, r4Out, r5Out, r6Out, r7Out, r8Out, r9Out, r10Out, r11Out,
+	r12Out, r13Out, r14Out, r15Out,
+	input wire Gra, Grb, Grc, Rin, Rout, BAout
+);

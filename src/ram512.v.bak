@@ -1,0 +1,23 @@
+module ram512(
+	output reg [31:0] data_out,
+	input wire [31:0] data_in, 
+	input wire [8:0] address,
+	input wire read, write
+	
+);
+
+	(*ram_file = "ram1024.hex"*) reg [31:0] ram [0:511];
+	
+	always@(posedge read, posedge write) begin
+		if(read)
+			data_out <= ram[address];
+		
+		else if(write)
+			ram[address] <= data_in;
+	end
+	
+	initial begin
+		data_out = 0;
+	end
+
+endmodule
