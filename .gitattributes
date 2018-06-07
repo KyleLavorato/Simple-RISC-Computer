@@ -2,4 +2,6 @@ db/* linguist-vendored
 greybox_tmp/* linguist-vendored
 output_files/* linguist-vendored
 simulation/* linguist-vendored
-
+Assembler/build/* linguist-vendored
+Assembler/dist/* linguist-vendored
+Assembler/__pycache__/* linguist-vendored
